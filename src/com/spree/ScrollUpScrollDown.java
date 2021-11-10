@@ -16,21 +16,10 @@ public class ScrollUpScrollDown {
 		JavascriptExecutor je = (JavascriptExecutor) driver;
 		String scrollDown = "window.scrollBy(0,1135)";
 		je.executeScript(scrollDown);
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 // Scroll up
 		String scrollUp = "window.scrollBy(0,-1135)";
 		je.executeScript(scrollUp);
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		driver.close();
 	}
 	
