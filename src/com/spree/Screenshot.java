@@ -2,6 +2,8 @@ package com.spree;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -14,6 +16,8 @@ public class Screenshot {
 		
 		System.setProperty("webdriver.chrome.driver","./Drivers/chromedriver");
 		WebDriver driver = new ChromeDriver();
+		//implicit wait
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		driver.get("https://spree-vapasi-prod.herokuapp.com/");
 		TakesScreenshot ts = (TakesScreenshot) driver;
