@@ -1,4 +1,4 @@
-package main.java.com.spree;
+package com.spree;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -20,8 +20,9 @@ public class FindingElement {
         //breakout room activity
         WebElement createAccount = driver.findElement(By.partialLinkText("Create"));
         createAccount.click();
+        //creating a new account, change email id everytime
         WebElement emailTextBox =  driver.findElement(By.id("spree_user_email"));
-        emailTextBox.sendKeys("teas@gm.com");
+        emailTextBox.sendKeys("te@gm.com");
         WebElement passwordTextBox =  driver.findElement(By.name("spree_user[password]"));
         passwordTextBox.sendKeys("Welcome");
         WebElement passwordConfirmationTextBox = driver.findElement(By.id("spree_user_password_confirmation"));

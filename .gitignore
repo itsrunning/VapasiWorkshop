@@ -1,2 +1,3 @@
-.idea
+.idea/*
 SeleniumBasics.iml
+.DS_Store
