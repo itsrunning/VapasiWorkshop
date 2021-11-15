@@ -1,4 +1,4 @@
-package TestNG;
+package WebdriverWithoutPageObject;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,7 +15,7 @@ public class TestWithMultipleBrowser {
     @BeforeTest
     public void setup()
     {
-        String browser = System.getProperty("browser");
+        String browser = System.getenv("browser");
         System.out.println("Before Test setting driver for" + browser +" browser");
         switch(browser) {
             case "chrome":
