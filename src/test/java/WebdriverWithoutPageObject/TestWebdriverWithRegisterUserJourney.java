@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class TestWebdriverWithUserJourney {
+public class TestWebdriverWithRegisterUserJourney {
 
     /*TEST 1
      * 1. Launch Spree website
@@ -29,8 +29,7 @@ public class TestWebdriverWithUserJourney {
      */
 
     WebDriver driver;
-    @Test(dataProvider="testdata")
-    public void testLoginWithdifferentUsers(String userEmail,String password)
+    public void testLoginWithdifferentUsers()
     {
 
         String browser = System.getProperty("browser");
@@ -42,7 +41,7 @@ public class TestWebdriverWithUserJourney {
         driver.manage().window().maximize();
 
         // Register User
-        registerUser(userEmail,password);
+        registerUser("test15nov11501@gmail.com","Password1");
 
         String welcomeMessageAlert = driver.findElement(By.cssSelector("div.alert.alert-notice")).getText();
         Assert.assertTrue(welcomeMessageAlert.equals("Welcome! You have signed up successfully."));
