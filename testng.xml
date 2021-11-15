@@ -1,7 +1,0 @@
-<suite name="Test-Suite" >
-    <test name="ToolsQA" >
-        <classes>
-            <class name="TestNG.TestNGTestsSample" />
-        </classes>
-    </test>
-</suite>

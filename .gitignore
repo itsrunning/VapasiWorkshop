@@ -1,3 +1,4 @@
 .idea/*
 SeleniumBasics.iml
 .DS_Store
+target/

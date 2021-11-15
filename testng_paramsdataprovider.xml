@@ -1,0 +1,8 @@
+<suite name="paramSuite" >
+    <parameter name="suite-param" value="chrome" />
+    <test name="paramsdataprovider" >
+        <classes>
+            <class name="TestNG.TestNGParameterAndDataProvider" />
+        </classes>
+    </test>
+</suite>

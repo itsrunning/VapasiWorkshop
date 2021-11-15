@@ -1,0 +1,7 @@
+<suite name="Test-Suite" >
+    <test name="vapasi" >
+        <classes>
+            <class name="TestNG.TestNGSuiteAnnotations" />
+        </classes>
+    </test>
+</suite>

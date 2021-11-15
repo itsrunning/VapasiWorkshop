@@ -1,0 +1,12 @@
+<suite name="Test-Suite" >
+    <test name="vapasi" >
+        <groups>
+            <run>
+                <include name = "regression"></include>
+            </run>
+        </groups>
+        <classes>
+            <class name="TestNG.TestNGGroups" />
+        </classes>
+    </test>
+</suite>
