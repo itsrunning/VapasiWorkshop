@@ -29,6 +29,7 @@ public class TestWebdriverWithRegisterUserJourney {
      */
 
     WebDriver driver;
+    @Test
     public void testLoginWithdifferentUsers()
     {
 
