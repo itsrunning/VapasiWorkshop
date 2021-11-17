@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.DataProvider;
@@ -26,11 +28,11 @@ public class TestWebdriverAddItemToCart {
     @Test
     public void testItemAddedToCart()
     {
-
         String browser = System.getProperty("browser");
         System.out.println("Before Test setting up chrome Driver");
         System.setProperty("webdriver.chrome.driver","./Drivers/chromedriver");
         driver = new ChromeDriver();
+        WebDriverWait wait = new WebDriverWait(driver,30000);
         driver.manage().timeouts().implicitlyWait(5000, TimeUnit.SECONDS);
         driver.get("https://spree-vapasi-prod.herokuapp.com/");
         driver.manage().window().maximize();
@@ -42,9 +44,8 @@ public class TestWebdriverAddItemToCart {
         Assert.assertTrue(welcomeMessageAlert.equals("Logged in successfully"));
         driver.findElement(By.linkText("Bags")).click();
         driver.findElement(By.xpath("//span[@title='Spree Bag']")).click();
-
-
-
+        driver.findElement(By.id("add-to-cart-button")).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("update-cart")));
     }
 
 
