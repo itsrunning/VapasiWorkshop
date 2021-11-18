@@ -37,9 +37,9 @@ public class TestWebdriverLoginUser {
     @Test
     public void testLoginToApplication()
     {
-        LoginPage loginPage = new LoginPage();
-        loginPage.login(driver, "test15nov11501@gmail.com","Password1");
-        loginPage.verifyLandingPage(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.login("test15nov11501@gmail.com","Password1");
+        loginPage.verifyLandingPage();
     }
 
     @AfterMethod
