@@ -3,22 +3,40 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 public class LoginPage {
-    public void login(WebDriver driver, String userEmail, String password)
-    {
-        driver.findElement((By.linkText("Login"))).click();
-        WebElement emailTextBox =  driver.findElement(By.id("spree_user_email"));
-        emailTextBox.sendKeys(userEmail);
-        WebElement passwordTextBox =  driver.findElement(By.name("spree_user[password]"));
-        passwordTextBox.sendKeys(password);
-        driver.findElement(By.name("commit")).click();
+    @FindBy(linkText = "Login")
+    private WebElement login;
+
+    @FindBy(id = "spree_user_email")
+    private WebElement emailTextBox;
+
+    @FindBy(name = "spree_user[password]")
+    private WebElement passwordTextBox;
+
+    @FindBy(name = "commit")
+    private WebElement submit;
+
+    @FindBy(css = "div.alert.alert-success")
+    private WebElement welcomeMessage;
+
+    public LoginPage(WebDriver driver) {
+        PageFactory.initElements(driver, this);
     }
 
-    public void verifyLandingPage(WebDriver driver){
-        String welcomeMessageAlert = driver.findElement(By.cssSelector("div.alert.alert-success")).getText();
-        Assert.assertEquals(welcomeMessageAlert, "Logged in successfully");
+    public void login(String userEmail, String password)
+    {
+        login.click();
+        emailTextBox.sendKeys(userEmail);
+        passwordTextBox.sendKeys(password);
+        submit.click();
+    }
+
+    public void verifyLandingPage(){
+        Assert.assertEquals(welcomeMessage.getText(), "Logged in successfully");
     }
 
 }

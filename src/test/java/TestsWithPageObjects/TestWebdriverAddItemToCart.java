@@ -43,16 +43,16 @@ public class TestWebdriverAddItemToCart {
     @Test
     public void testItemAddedToCart()
     {
-        LoginPage loginPage = new LoginPage();
-        CategoryPage categoryPage = new CategoryPage();
-        CartPage cartPage = new CartPage();
+        LoginPage loginPage = new LoginPage(driver);
+        CategoryPage categoryPage = new CategoryPage(driver);
+        CartPage cartPage = new CartPage(driver);
 
-        loginPage.login(driver, "test15nov11501@gmail.com","Password1");
-        loginPage.verifyLandingPage(driver);
-        categoryPage.selectCategory(driver);
-        categoryPage.selectProduct(driver);
-        cartPage.addProductToCart(driver);
-        cartPage.validateCartPage(driver);
+        loginPage.login("test15nov11501@gmail.com","Password1");
+        loginPage.verifyLandingPage();
+        categoryPage.selectCategory();
+        categoryPage.selectProduct();
+        cartPage.addProductToCart();
+        cartPage.validateCartPage();
     }
 
 

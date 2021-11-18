@@ -1,10 +1,7 @@
-package TestsWithPageObjects;
+package TestsWithPageFactory;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -12,7 +9,7 @@ import pages.LoginPage;
 
 import java.util.concurrent.TimeUnit;
 
-public class TestWebdriverLoginUser {
+public class TestWebdriverLoginUserWithoutPageFactory {
 
 
     /* TEST 1 (Login user with registered credentials)
@@ -37,9 +34,9 @@ public class TestWebdriverLoginUser {
     @Test
     public void testLoginToApplication()
     {
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.login("test15nov11501@gmail.com","Password1");
-        loginPage.verifyLandingPage();
+        LoginPage loginPage = new LoginPage();
+        loginPage.login(driver, "test15nov11501@gmail.com","Password1");
+        loginPage.verifyLandingPage(driver);
     }
 
     @AfterMethod
