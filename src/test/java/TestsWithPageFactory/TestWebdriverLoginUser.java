@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import pages.HomePage;
 import pages.LoginPage;
 
 import java.util.concurrent.TimeUnit;
@@ -35,8 +36,9 @@ public class TestWebdriverLoginUser {
     public void testLoginToApplication()
     {
         LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
         loginPage.login("test15nov11501@gmail.com","Password1");
-        loginPage.verifyLandingPage();
+        homePage.verifyLandingPage();
     }
 
     @AfterMethod

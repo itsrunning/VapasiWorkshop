@@ -5,9 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages.CartPage;
-import pages.CategoryPage;
-import pages.LoginPage;
+import pages.*;
 
 import java.util.concurrent.TimeUnit;
 
@@ -38,14 +36,16 @@ public class TestWebdriverAddItemToCart {
     public void testItemAddedToCart()
     {
         LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
         CategoryPage categoryPage = new CategoryPage(driver);
+        ProductPage productPage = new ProductPage(driver);
         CartPage cartPage = new CartPage(driver);
 
         loginPage.login("test15nov11501@gmail.com","Password1");
-        loginPage.verifyLandingPage();
+        homePage.verifyLandingPage();
         categoryPage.selectCategory();
         categoryPage.selectProduct();
-        cartPage.addProductToCart();
+        productPage.addProductToCart();
         cartPage.validateCartPage();
     }
 

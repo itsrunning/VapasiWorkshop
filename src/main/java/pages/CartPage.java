@@ -8,9 +8,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CartPage {
-    @FindBy(id = "add-to-cart-button")
-    private WebElement addToCart;
-
     @FindBy(id = "update-cart")
     private WebElement cartPage;
 
@@ -19,10 +16,6 @@ public class CartPage {
     public CartPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         wait = new WebDriverWait(driver,30000);
-    }
-
-    public void addProductToCart(){
-        addToCart.click();
     }
 
     public void validateCartPage() {

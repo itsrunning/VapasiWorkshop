@@ -1,11 +1,9 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 
 public class LoginPage {
     @FindBy(linkText = "Login")
@@ -20,9 +18,6 @@ public class LoginPage {
     @FindBy(name = "commit")
     private WebElement submit;
 
-    @FindBy(css = "div.alert.alert-success")
-    private WebElement welcomeMessage;
-
     public LoginPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
@@ -34,9 +29,4 @@ public class LoginPage {
         passwordTextBox.sendKeys(password);
         submit.click();
     }
-
-    public void verifyLandingPage(){
-        Assert.assertEquals(welcomeMessage.getText(), "Logged in successfully");
-    }
-
 }
