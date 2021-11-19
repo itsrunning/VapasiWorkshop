@@ -6,10 +6,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CartPage {
-    public void addProductToCart(WebDriver driver){
-        driver.findElement(By.id("add-to-cart-button")).click();
-    }
-
     public void validateCartPage(WebDriver driver) {
         WebDriverWait wait = new WebDriverWait(driver,30000);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.id("update-cart")));

@@ -10,9 +10,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages.CartPage;
-import pages.CategoryPage;
-import pages.LoginPage;
+import pages.*;
 
 import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
@@ -44,14 +42,16 @@ public class TestWebdriverAddItemToCart {
     public void testItemAddedToCart()
     {
         LoginPage loginPage = new LoginPage();
+        HomePage homePage = new HomePage();
         CategoryPage categoryPage = new CategoryPage();
+        ProductPage productPage = new ProductPage();
         CartPage cartPage = new CartPage();
 
         loginPage.login(driver, "test15nov11501@gmail.com","Password1");
-        loginPage.verifyLandingPage(driver);
+        homePage.verifyLandingPage(driver);
         categoryPage.selectCategory(driver);
         categoryPage.selectProduct(driver);
-        cartPage.addProductToCart(driver);
+        productPage.addProductToCart(driver);
         cartPage.validateCartPage(driver);
     }
 

@@ -8,6 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import pages.HomePage;
 import pages.LoginPage;
 
 import java.util.concurrent.TimeUnit;
@@ -38,8 +39,9 @@ public class TestWebdriverLoginUser {
     public void testLoginToApplication()
     {
         LoginPage loginPage = new LoginPage();
+        HomePage homePage = new HomePage();
         loginPage.login(driver, "test15nov11501@gmail.com","Password1");
-        loginPage.verifyLandingPage(driver);
+        homePage.verifyLandingPage(driver);
     }
 
     @AfterMethod

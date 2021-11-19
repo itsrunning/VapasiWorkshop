@@ -15,10 +15,4 @@ public class LoginPage {
         passwordTextBox.sendKeys(password);
         driver.findElement(By.name("commit")).click();
     }
-
-    public void verifyLandingPage(WebDriver driver){
-        String welcomeMessageAlert = driver.findElement(By.cssSelector("div.alert.alert-success")).getText();
-        Assert.assertEquals(welcomeMessageAlert, "Logged in successfully");
-    }
-
 }
