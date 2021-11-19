@@ -1,17 +1,24 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CartPage {
-    public void addProductToCart(WebDriver driver){
-        driver.findElement(By.id("add-to-cart-button")).click();
+    @FindBy(id = "update-cart")
+    private WebElement cartPage;
+
+    WebDriverWait wait;
+
+    public CartPage(WebDriver driver) {
+        PageFactory.initElements(driver, this);
+        wait = new WebDriverWait(driver,30000);
     }
 
-    public void validateCartPage(WebDriver driver) {
-        WebDriverWait wait = new WebDriverWait(driver,30000);
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("update-cart")));
+    public void validateCartPage() {
+        wait.until(ExpectedConditions.visibilityOf(cartPage));
     }
 }
