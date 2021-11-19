@@ -1,5 +1,6 @@
 package TestsWithPageObjects;
 
+import demo.pages.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,9 +11,6 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages.CartPage;
-import pages.CategoryPage;
-import pages.LoginPage;
 
 import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
@@ -43,16 +41,18 @@ public class TestWebdriverAddItemToCart {
     @Test
     public void testItemAddedToCart()
     {
-        LoginPage loginPage = new LoginPage(driver);
-        CategoryPage categoryPage = new CategoryPage(driver);
-        CartPage cartPage = new CartPage(driver);
+        demo.pages.LoginPage loginPage = new LoginPage();
+        HomePage homePage = new HomePage();
+        demo.pages.CategoryPage categoryPage = new CategoryPage();
+        ProductPage productPage = new ProductPage();
+        demo.pages.CartPage cartPage = new CartPage();
 
-        loginPage.login("test15nov11501@gmail.com","Password1");
-        loginPage.verifyLandingPage();
-        categoryPage.selectCategory();
-        categoryPage.selectProduct();
-        cartPage.addProductToCart();
-        cartPage.validateCartPage();
+        loginPage.login(driver, "test15nov11501@gmail.com","Password1");
+        homePage.verifyLandingPage(driver);
+        categoryPage.selectCategory(driver);
+        categoryPage.selectProduct(driver);
+        productPage.addProductToCart(driver);
+        cartPage.validateCartPage(driver);
     }
 
 

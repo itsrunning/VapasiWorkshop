@@ -1,5 +1,6 @@
 package TestsWithPageFactory;
 
+import demo.pages.HomePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -35,8 +36,9 @@ public class TestWebdriverLoginUserWithoutPageFactory {
     public void testLoginToApplication()
     {
         LoginPage loginPage = new LoginPage();
+        HomePage homePage = new HomePage();
         loginPage.login(driver, "test15nov11501@gmail.com","Password1");
-        loginPage.verifyLandingPage(driver);
+        homePage.verifyLandingPage(driver);
     }
 
     @AfterMethod
